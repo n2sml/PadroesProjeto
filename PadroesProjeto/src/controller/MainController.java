@@ -1,22 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
+import javax.swing.filechooser.FileSystemView;
 import view.JanelaSelecionarImagemJF;
 
-/**
- *
- * @author nicolas
- */
 public class MainController {
 
     public static void carregarImagem() {
         System.out.println("CarregarImagem");
+        JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory()); 
+        j.setMultiSelectionEnabled(false); 
+        j.showSaveDialog(null);        
+        
     }
 
     public static void openJanelaSelecionarImagem() {
