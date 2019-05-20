@@ -1,8 +1,7 @@
 package model;
 
+import adapter.Adapter;
 import controller.MainController;
-import java.awt.image.BufferedImage;
-import javax.swing.ImageIcon;
 import marvin.image.MarvinImage;
 import marvin.util.MarvinPluginLoader;
 import observer.Observer;
@@ -20,14 +19,8 @@ public class ImagemSepia implements Observer{
         MainController.imagePlugin.process(image, image);
         
         image.update();
-        
-        //Adapter 1:
-        BufferedImage buffImg = image.getBufferedImage();
-        
-        //Adapter 2:
-        ImageIcon temp = new ImageIcon(buffImg);
-        
-        janelaSepia.setJLabelIcon(temp);
+                
+        janelaSepia.setJLabelIcon(Adapter.marvinImageToIcon(image));
     }
 
     @Override
@@ -35,6 +28,4 @@ public class ImagemSepia implements Observer{
         System.out.println("exibir()");
         janelaSepia.setVisible(true);
     }
-
-
 }

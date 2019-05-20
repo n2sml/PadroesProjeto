@@ -1,8 +1,7 @@
 package model;
 
+import adapter.Adapter;
 import controller.MainController;
-import java.awt.image.BufferedImage;
-import javax.swing.ImageIcon;
 import marvin.image.MarvinImage;
 import marvin.util.MarvinPluginLoader;
 import observer.Observer;
@@ -21,13 +20,7 @@ public class ImagemInvertida implements Observer{
         
         image.update();
         
-        //Adapter 1:
-        BufferedImage buffImg = image.getBufferedImage();
-        
-        //Adapter 2:
-        ImageIcon temp = new ImageIcon(buffImg);
-        
-        janelaInvertida.setJLabelIcon(temp);
+        janelaInvertida.setJLabelIcon(Adapter.marvinImageToIcon(image));
     }
 
     @Override

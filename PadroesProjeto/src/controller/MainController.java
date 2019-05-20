@@ -36,11 +36,8 @@ public class MainController {
 
     public static void carregarImagem() {
         System.out.println("CarregarImagem");
-        JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        JFileChooser fileChooser = new JFileChooser(System.getProperty("user.home"));
         fileChooser.setMultiSelectionEnabled(false);
-        //fileChooser.showSaveDialog(null);        
-        
-        
         
         int returnVal = fileChooser.showOpenDialog(null);
 
