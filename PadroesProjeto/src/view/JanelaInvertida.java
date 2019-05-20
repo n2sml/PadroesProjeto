@@ -5,25 +5,27 @@
  */
 package view;
 
-import controller.MainController;
-import java.awt.image.BufferedImage;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import marvin.image.MarvinImage;
-import marvin.util.MarvinPluginLoader;
-import observer.Observer;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
  * @author nicolas
  */
-public class JanelaInvertida extends javax.swing.JFrame{
+public class JanelaInvertida extends javax.swing.JFrame {
 
     /**
      * Creates new form JanelaInvertida
      */
     public JanelaInvertida() {
         initComponents();
+
+        this.setTitle("Imagem com as Cores Invertidas");
+
+        //Meio da tela
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2 - this.getSize().width/2, dim.height / 2 - this.getSize().height / 2);
     }
 
     /**
@@ -94,10 +96,10 @@ public class JanelaInvertida extends javax.swing.JFrame{
         });
     }
 
-    public void setJLabelIcon(Icon x){
+    public void setJLabelIcon(Icon x) {
         this.jLabel1.setIcon(x);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

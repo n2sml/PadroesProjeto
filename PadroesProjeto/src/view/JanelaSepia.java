@@ -6,6 +6,8 @@
 package view;
 
 import controller.MainController;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -24,6 +26,12 @@ public class JanelaSepia extends javax.swing.JFrame{
      */
     public JanelaSepia() {
         initComponents();
+        
+        this.setTitle("Imagem em Sépia");
+        
+        //Esquerda da tela
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(0, dim.height / 2 - this.getSize().height / 2);
     }
 
     /**

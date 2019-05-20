@@ -1,11 +1,19 @@
 package view;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 
 public class ImagemSemEfeito extends javax.swing.JFrame {
 
     public ImagemSemEfeito() {
         initComponents();
+
+        this.setTitle("Imagem Original");
+        
+        //Meio da Tela
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
 
     @SuppressWarnings("unchecked")
@@ -38,7 +46,6 @@ public class ImagemSemEfeito extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
- 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -60,7 +67,7 @@ public class ImagemSemEfeito extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ImagemSemEfeito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ImagemSemEfeito().setVisible(true);

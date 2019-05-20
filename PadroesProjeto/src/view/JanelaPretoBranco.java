@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 
 /**
@@ -18,6 +20,11 @@ public class JanelaPretoBranco extends javax.swing.JFrame {
      */
     public JanelaPretoBranco() {
         initComponents();
+        
+        this.setTitle("Imagem em Escala de Cinza");
+        //Esquerda da tela
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width - this.getSize().width, dim.height / 2 - this.getSize().height / 2);
     }
 
     /**

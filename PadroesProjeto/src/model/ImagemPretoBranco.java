@@ -21,8 +21,10 @@ public class ImagemPretoBranco implements Observer{
         
         image.update();
         
+        //Adapter 1:
         BufferedImage buffImg = image.getBufferedImage();
         
+        //Adapter 2:
         ImageIcon temp = new ImageIcon(buffImg);
         
         janelaPretoBranco.setJLabelIcon(temp);
