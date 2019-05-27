@@ -22,7 +22,7 @@ public class MainController {
     public static MarvinImagePlugin imagePlugin;
 
     public static void openJanelaSelecionarImagem() {
-        JanelaSelecionarImagemJF selecionarImagem = new JanelaSelecionarImagemJF();
+        JanelaDescricao selecionarImagem = new JanelaDescricao();
         selecionarImagem.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         try {
@@ -34,6 +34,10 @@ public class MainController {
         selecionarImagem.setVisible(true);
     }
 
+    public static void instanciarJanelas(){
+        adicionarAoArray();
+    }
+    
     public static void carregarImagem() {
         System.out.println("CarregarImagem");
         JFileChooser fileChooser = new JFileChooser(System.getProperty("user.home"));
@@ -53,11 +57,11 @@ public class MainController {
             imagemSemEfeitoWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
             ImageIcon adapter = new ImageIcon(file.getAbsolutePath());
-            imagemSemEfeitoWindow.setImagemSemEfeito(adapter);
+            imagemSemEfeitoWindow.setJLabelIcon(adapter);
 
             imagemSemEfeitoWindow.setVisible(true);
 
-            adicionarAoArray();
+            runJanelas();
         }
     }
 
@@ -66,7 +70,7 @@ public class MainController {
         minhasJanelas = new ArrayList();
 
         Observer pretoBranco = new ImagemPretoBranco();
-        minhasJanelas.add(pretoBranco);
+        minhasJanelas.add(pretoBranco);        
         
         Observer sepia = new ImagemSepia();
         minhasJanelas.add(sepia);
@@ -74,14 +78,24 @@ public class MainController {
         Observer invertida = new ImagemInvertida();
         minhasJanelas.add(invertida);
         
-        runJanelas();
+        Observer original = new ImagemOriginal();
+        minhasJanelas.add(original);
+        
+        exibirJanelas();
+        //runJanelas();
+    }
+    
+    public static void exibirJanelas(){
+        for (Observer temp : minhasJanelas) {
+            temp.exibir();
+        }
     }
 
     public static void runJanelas() {
         System.out.println("runJanelas()");
         for (Observer temp : minhasJanelas) {
             temp.processar();
-            temp.exibir();
+            //temp.exibir();
         }
     }
 }

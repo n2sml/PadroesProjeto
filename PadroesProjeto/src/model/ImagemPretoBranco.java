@@ -12,9 +12,7 @@ public class ImagemPretoBranco implements Observer{
     private JanelaPretoBranco janelaPretoBranco;
     
     @Override
-    public void processar() {
-        janelaPretoBranco = new JanelaPretoBranco();
-        
+    public void processar() {        
         MarvinImage image = MainController.marvinImage.clone();
         MainController.imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.grayScale.jar");
         MainController.imagePlugin.process(image, image);
@@ -32,7 +30,8 @@ public class ImagemPretoBranco implements Observer{
 
     @Override
     public void exibir() {
-        System.out.println("exibir()");
+        System.out.println("exibir()");        
+        janelaPretoBranco = new JanelaPretoBranco();
         janelaPretoBranco.setVisible(true);
     }
 

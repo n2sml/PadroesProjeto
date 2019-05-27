@@ -4,9 +4,9 @@ import controller.MainController;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
-public class JanelaSelecionarImagemJF extends javax.swing.JFrame {
+public class JanelaDescricao extends javax.swing.JFrame {
 
-    public JanelaSelecionarImagemJF() {
+    public JanelaDescricao() {
         initComponents();
         this.setTitle("Carregar Imagem");
 
@@ -150,8 +150,10 @@ public class JanelaSelecionarImagemJF extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainController.carregarImagem();
+        /*        MainController.carregarImagem();
         this.setVisible(false);
+         */
+        MainController.instanciarJanelas();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
@@ -167,19 +169,20 @@ public class JanelaSelecionarImagemJF extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JanelaSelecionarImagemJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaDescricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JanelaSelecionarImagemJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaDescricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JanelaSelecionarImagemJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaDescricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JanelaSelecionarImagemJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaDescricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JanelaSelecionarImagemJF().setVisible(true);
+                new JanelaDescricao().setVisible(true);
             }
         });
     }

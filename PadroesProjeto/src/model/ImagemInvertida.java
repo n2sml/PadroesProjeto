@@ -11,9 +11,7 @@ public class ImagemInvertida implements Observer{
     private JanelaInvertida janelaInvertida;
     
     @Override
-    public void processar() {
-        janelaInvertida = new JanelaInvertida();
-        
+    public void processar() {        
         MarvinImage image = MainController.marvinImage.clone();
         MainController.imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.invert.jar");
         MainController.imagePlugin.process(image, image);
@@ -25,7 +23,8 @@ public class ImagemInvertida implements Observer{
 
     @Override
     public void exibir() {
-        System.out.println("exibir()");
+        System.out.println("exibir()");        
+        janelaInvertida = new JanelaInvertida();
         janelaInvertida.setVisible(true);
     }
 

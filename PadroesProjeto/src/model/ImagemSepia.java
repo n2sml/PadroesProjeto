@@ -11,9 +11,7 @@ public class ImagemSepia implements Observer{
     private JanelaSepia janelaSepia;
     
     @Override
-    public void processar() {
-        janelaSepia = new JanelaSepia();
-        
+    public void processar() {        
         MarvinImage image = MainController.marvinImage.clone();
         MainController.imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.sepia.jar");
         MainController.imagePlugin.process(image, image);
@@ -25,7 +23,8 @@ public class ImagemSepia implements Observer{
 
     @Override
     public void exibir() {
-        System.out.println("exibir()");
+        System.out.println("exibir()");        
+        janelaSepia = new JanelaSepia();
         janelaSepia.setVisible(true);
     }
 }
