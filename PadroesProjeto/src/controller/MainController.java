@@ -56,11 +56,6 @@ public class MainController {
             ImagemSemEfeito imagemSemEfeitoWindow = new ImagemSemEfeito();
             imagemSemEfeitoWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-            ImageIcon adapter = new ImageIcon(file.getAbsolutePath());
-            imagemSemEfeitoWindow.setJLabelIcon(adapter);
-
-            imagemSemEfeitoWindow.setVisible(true);
-
             runJanelas();
         }
     }
