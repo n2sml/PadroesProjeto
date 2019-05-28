@@ -1,6 +1,6 @@
 package model;
 
-import adapter.Adapter;
+import adapter.MarvinAdapter;
 import controller.MainController;
 import marvin.image.MarvinImage;
 import marvin.util.MarvinPluginLoader;
@@ -9,16 +9,17 @@ import view.JanelaSepia;
 
 public class ImagemSepia implements Observer{
     private JanelaSepia janelaSepia;
-    
+        
     @Override
-    public void processar() {        
-        MarvinImage image = MainController.marvinImage.clone();
-        MainController.imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.sepia.jar");
-        MainController.imagePlugin.process(image, image);
+    public void processar() {         
+        MarvinAdapter image = new MarvinAdapter();
+        image.setMarvinImage((MarvinImage) MainController.myMarvin.clone());
+        MainController.imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.sepia.jar");        
+        MainController.imagePlugin.process(image.getMarvinImage(), image.getMarvinImage());
         
         image.update();
-                
-        janelaSepia.setJLabelIcon(Adapter.marvinImageToIcon(image));
+        
+        janelaSepia.setJLabelIcon(image.getIcon());
     }
 
     @Override

@@ -1,8 +1,7 @@
 package model;
 
+import adapter.MarvinAdapter;
 import controller.MainController;
-import java.awt.image.BufferedImage;
-import javax.swing.ImageIcon;
 import marvin.image.MarvinImage;
 import marvin.util.MarvinPluginLoader;
 import observer.Observer;
@@ -12,20 +11,15 @@ public class ImagemPretoBranco implements Observer{
     private JanelaPretoBranco janelaPretoBranco;
     
     @Override
-    public void processar() {        
-        MarvinImage image = MainController.marvinImage.clone();
+    public void processar() {          
+        MarvinAdapter image = new MarvinAdapter();
+        image.setMarvinImage((MarvinImage) MainController.myMarvin.clone());
         MainController.imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.grayScale.jar");
-        MainController.imagePlugin.process(image, image);
+        MainController.imagePlugin.process(image.getMarvinImage(), image.getMarvinImage());
         
         image.update();
         
-        //Adapter 1:
-        BufferedImage buffImg = image.getBufferedImage();
-        
-        //Adapter 2:
-        ImageIcon temp = new ImageIcon(buffImg);
-        
-        janelaPretoBranco.setJLabelIcon(temp);
+        janelaPretoBranco.setJLabelIcon(image.getIcon());
     }
 
     @Override

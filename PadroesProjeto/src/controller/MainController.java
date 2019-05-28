@@ -1,13 +1,11 @@
 package controller;
 
+import adapter.MarvinAdapter;
 import java.io.File;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
-import javax.swing.filechooser.FileSystemView;
-import marvin.image.MarvinImage;
 import marvin.io.MarvinImageIO;
 import marvin.plugin.MarvinImagePlugin;
 import observer.Observer;
@@ -18,7 +16,7 @@ public class MainController {
 
     public static String enderecoImagemOriginal;
     private static ArrayList<Observer> minhasJanelas;
-    public static MarvinImage marvinImage;
+    public static MarvinAdapter myMarvin;
     public static MarvinImagePlugin imagePlugin;
 
     public static void openJanelaSelecionarImagem() {
@@ -48,8 +46,8 @@ public class MainController {
         if (returnVal == javax.swing.JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             enderecoImagemOriginal = file.getAbsolutePath();
-            
-            marvinImage = MarvinImageIO.loadImage(MainController.enderecoImagemOriginal);
+            myMarvin = new MarvinAdapter();
+            myMarvin.setMarvinImage(MarvinImageIO.loadImage(MainController.enderecoImagemOriginal));
             
             System.out.println("Imagem carregada.");
 

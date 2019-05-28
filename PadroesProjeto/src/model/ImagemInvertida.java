@@ -1,6 +1,6 @@
 package model;
 
-import adapter.Adapter;
+import adapter.MarvinAdapter;
 import controller.MainController;
 import marvin.image.MarvinImage;
 import marvin.util.MarvinPluginLoader;
@@ -11,14 +11,15 @@ public class ImagemInvertida implements Observer{
     private JanelaInvertida janelaInvertida;
     
     @Override
-    public void processar() {        
-        MarvinImage image = MainController.marvinImage.clone();
+    public void processar() {     
+        MarvinAdapter image = new MarvinAdapter();
+        image.setMarvinImage((MarvinImage) MainController.myMarvin.clone());
         MainController.imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.invert.jar");
-        MainController.imagePlugin.process(image, image);
+        MainController.imagePlugin.process(image.getMarvinImage(), image.getMarvinImage());
         
         image.update();
         
-        janelaInvertida.setJLabelIcon(Adapter.marvinImageToIcon(image));
+        janelaInvertida.setJLabelIcon(image.getIcon());
     }
 
     @Override

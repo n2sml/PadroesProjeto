@@ -1,9 +1,8 @@
 package model;
 
-import adapter.Adapter;
+import adapter.MarvinAdapter;
 import controller.MainController;
 import marvin.image.MarvinImage;
-import marvin.util.MarvinPluginLoader;
 import observer.Observer;
 import view.ImagemSemEfeito;
 
@@ -12,12 +11,12 @@ public class ImagemOriginal implements Observer{
     
     @Override
     public void processar() {        
-        MarvinImage image = MainController.marvinImage.clone();
-        image.update();
+        MarvinAdapter image = new MarvinAdapter();        
+        image.setMarvinImage((MarvinImage) MainController.myMarvin.clone());
         
-        janelaSemEfeito.setJLabelIcon(Adapter.marvinImageToIcon(image));
+        janelaSemEfeito.setJLabelIcon(image.getIcon());
     }
-
+    
     @Override
     public void exibir() {
         System.out.println("exibir()");        
